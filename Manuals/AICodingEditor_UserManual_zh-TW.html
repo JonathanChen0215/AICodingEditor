@@ -1,0 +1,192 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>AICodingEditor 使用說明書 V0.2.99-01a</title><style>
+:root{--ink:#19212b;--accent:#0b63b6;--panel:#f5f8fc;--line:#d5dde7;--code:#0c1219;--muted:#596675}
+*{box-sizing:border-box} body{margin:0;background:#eef2f7;color:var(--ink);font-family:Segoe UI,Arial,"Microsoft JhengHei",sans-serif;line-height:1.62}
+header{background:linear-gradient(135deg,#0d223a,#1467b0);color:#fff;padding:36px calc((100% - 1100px)/2 + 28px)} header h1{margin:0 0 8px;font-size:34px} header p{margin:0;opacity:.94}.wrap{max-width:1100px;margin:24px auto 70px;padding:0 22px}.toc,.card{background:#fff;border:1px solid var(--line);border-radius:10px;box-shadow:0 2px 8px rgba(15,34,55,.06)}.toc{padding:16px 24px;margin-bottom:22px}.toc h2{margin:0 0 6px;font-size:18px}.toc ol{columns:2;margin:0;padding-left:20px}.toc a{color:var(--accent);text-decoration:none}section{background:#fff;border:1px solid var(--line);border-radius:10px;margin:18px 0;padding:24px 28px;box-shadow:0 2px 8px rgba(15,34,55,.05)}h2{margin:0 0 12px;color:#123e68;font-size:25px}h3{color:#185a95;margin-top:22px}h4{margin:14px 0 6px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px}.card{padding:14px 16px;background:var(--panel)}.badge{display:inline-block;margin:4px 5px 0 0;padding:3px 9px;border-radius:999px;background:#e5f1ff;color:#0b559b;font-size:12px;font-weight:600}.actual-shot{display:block;width:100%;border:1px solid #b8c6d5;border-radius:7px;margin:14px 0 6px;background:#111}.caption{color:var(--muted);font-size:13px;margin-top:0}.note{padding:12px 14px;border-left:4px solid #2586d7;background:#eaf5ff;border-radius:4px}.warn{padding:12px 14px;border-left:4px solid #c47c00;background:#fff5de;border-radius:4px}pre{background:var(--code);color:#e8f2ff;border-radius:7px;padding:14px;overflow:auto;white-space:pre-wrap}code{font-family:Consolas,"Cascadia Mono",monospace}table{width:100%;border-collapse:collapse;margin:12px 0;font-size:14px}th{background:#174f80;color:#fff;text-align:left}th,td{border:1px solid #ccd7e3;padding:8px;vertical-align:top}tr:nth-child(even){background:#f7faff}.small{font-size:13px;color:var(--muted)}footer{max-width:1100px;margin:0 auto 40px;color:#617083;font-size:13px;padding:0 22px}@media(max-width:740px){header{padding:28px 20px}.toc ol{columns:1}.wrap{padding:0 12px}section{padding:18px}header h1{font-size:27px}}
+</style></head><body><header><h1>AICodingEditor 使用說明書</h1><p>V0.2.99-01a Alpha 1 · 多程式語言、資料庫、AI、機器學習、深度學習、執行資料報表與即時變數監測。</p><p><b>GitHub 語言套件：</b>本 Alpha 版提供 English、中文（繁體，台灣）與簡體中文三種預設語言下載包。啟動後仍可至「設定 → 偏好 → 一般 → 語言」自行切換。</p><div><span class="badge">Windows x64</span><span class="badge">macOS 啟動包</span><span class="badge">Java 17+</span><span class="badge">Excel / PNG 報表</span></div><p><b>V0.1.32 發行包說明：</b>使用說明書與範例程式會同時放在 EXE/JAR 旁及 JAR 內建資源，避免移動資料夾後找不到檔案。</p></header><div class="wrap"><nav class="toc"><h2>目錄</h2><ol><li><a href="#scope">產品範圍</a></li><li><a href="#layout">實際視窗配置</a></li><li><a href="#ai-layout">AI 助手示窗配置</a></li><li><a href="#quick">快速開始</a></li><li><a href="#paths">程式語言與路徑設定</a></li><li><a href="#data">資料擷取、Excel 報表與圖檔</a></li><li><a href="#live">即時變數監測與波型</a></li><li><a href="#ai">資料庫與 AI 套件</a></li><li><a href="#mac">macOS / MacBook</a></li><li><a href="#trial">內部試用與聯絡方式</a></li><li><a href="#wide">變數樣本資料表</a></li><li><a href="#python-recovery">Python uv 與套件自動修復</a></li></ol></nav><section id="scope"><h2>1. 產品範圍</h2><p><b>AICodingEditor</b> 是多程式語言程式碼編輯器與工作平台，整合編輯、語法突顯、Workbench、檔案瀏覽器、嵌入式控制台、Python <code>uv</code> 虛擬環境、SQL、AI 學習專案，以及程式執行資料報表。</p><div class="grid"><div class="card"><b>程式語言</b><br>Java、C、C++、C#、Python、JavaScript、PHP、Rust、Arduino、SQL。</div><div class="card"><b>資料庫</b><br>MS SQL Server、SQLite、MySQL CLI 工作流程。</div><div class="card"><b>AI</b><br>機器學習、深度學習、神經網路、電腦視覺與 NLP。</div><div class="card"><b>執行報表</b><br>變數、標準輸入／輸出、表格、圖檔、XLSX 與 PNG 圖表。</div></div></section><section id="layout"><h2>2. 實際視窗配置與相對位置</h2><p>下圖為實際 AICodingEditor 視窗截圖；上方為選單與功能列，左側為 Workbench 與檔案瀏覽器，右側為編輯區與下方控制台／變數監測頁籤。</p><img class="actual-shot" src="images/aicodingeditor_actual_editor_layout.png" alt="AICodingEditor 實際編輯器配置"><p class="caption">實際視窗配置：上方選單與功能列、左側專案與檔案、右側編輯器、下方嵌入式控制台／變數監測。</p><table><thead><tr><th>區域</th><th>相對位置</th><th>用途</th></tr></thead><tbody><tr><td>選單與功能列</td><td>最上方</td><td>檔案、搜尋、編譯／執行、變數／圖表功能。</td></tr><tr><td>Workbench／檔案瀏覽器</td><td>左側</td><td>專案導覽與目前開啟檔案的同步標示。</td></tr><tr><td>編輯器</td><td>右上</td><td>分頁、原始碼與語法突顯。</td></tr><tr><td>嵌入式控制台／變數監測</td><td>右下</td><td>程式輸入、執行控制、即時變數表格與波型。</td></tr></tbody></table><img class="actual-shot" src="images/aicodingeditor_language_dialog_actual.png" alt="語言設定對話框"><p class="caption">語言位置：設定 → 偏好 → 一般 → 語言，可選繁體中文、簡體中文或 English。</p></section><section id="ai-layout"><h2>2-1. AI 助手示窗配置與安全流程</h2><p>右側 AI Assistant 面板包含 AI 功能列、AI 回覆區、Prompt／AI command window、附件列與左下角 <b>+</b> 附加按鈕。</p><img class="actual-shot" src="images/aicodingeditor_ai_assistant_layout.png" alt="AICodingEditor AI 助手示窗配置"><p class="caption">AI Assistant：上方圖示列可選 Chat、Explain、Fix Error、Generate Code、Review Code；按 <b>▶</b> 或 <b>Ctrl+Enter</b> 才會送出。Prompt 左下角 <b>+</b> 可附加檔案、圖片、資料夾或 uv 專案；左側檔案樹也可拖放到 Prompt 區。</p><ul><li><b>AI Provider Settings：</b>Provider、預設 AI 功能、送出目前選取程式碼／目前檔案／Console Error、Full Project Scan、Auto Run、Auto Install Package 與 API Key 來源都在此設定。</li><li><b>安全預設：</b>AI 不會自動執行、不會自動安裝套件、不會自動修改檔案。</li><li><b>Patch 與新檔：</b>必須先 Preview / Diff，再由使用者確認後才可套用或建立。</li></ul></section><section id="quick"><h2>3. 快速開始</h2><ol><li>保持 <code>AICodingEditor.exe</code> 與 <code>AICodingEditor.jar</code> 位於同一個資料夾。</li><li>開啟已儲存的程式檔案，按「編譯目前檔案」或「執行目前檔案」。</li><li>互動式程式請在下方「程式標準輸入」輸入資料後按送出。</li><li>需要報表與即時變數時，啟用「變數／圖表 → 啟用即時變數監測」，選擇變數後再執行。</li></ol><div class="note">「編譯」只進行檢查／建置；「執行」才會實際執行程式並在原始碼同層建立 <code>variable</code> 報表資料夾。</div></section><section id="paths"><h2>4. 各種程式語言的路徑、需求與範例</h2><table><thead><tr><th>語言</th><th>需求／路徑範例</th><th>設定位置</th></tr></thead><tbody><tr><td>Java</td><td>JDK 17+；例如 <code>D:\JDK-26.0.1\bin</code>。</td><td>系統 PATH；以 <code>java -version</code> 驗證。</td></tr><tr><td>Python</td><td>Python 3 與 uv；每個 AI 專案可建立獨立 <code>.venv</code>。</td><td>設定 → 偏好 → 一般 → Python 解譯器／uv Python 專案。</td></tr><tr><td>C / C++</td><td>GCC/G++ 或 MinGW；例如 <code>D:\Dev-Cpp\MinGW64\bin\gcc.exe</code>、<code>g++.exe</code>。</td><td>設定 → 偏好 → 一般 → 程式語言與工具鏈。</td></tr><tr><td>C# / JS / PHP / Rust</td><td>.NET SDK 或 csc、Node.js、PHP CLI、Rust rustc/Cargo。</td><td>程式語言與工具鏈。</td></tr><tr><td>Arduino</td><td>Arduino CLI、Board FQBN、Library Root。</td><td>程式語言與工具鏈 → Arduino。</td></tr><tr><td>SQL</td><td>SQLite CLI、MS SQL sqlcmd、MySQL mysql CLI。</td><td>SQLite 目標與 MS SQL 驅動程式設定。</td></tr></tbody></table><h3>跨語言可攜變數輸出範例</h3><pre>print(f"AICE_VAR loss={loss:.4f}", flush=True)
+print(f"AICE_VAR accuracy={accuracy:.4f}", flush=True)
+print("AICE_TABLE_BEGIN training_history")
+print("epoch,loss,accuracy")
+print("1,0.82,0.61")
+print("2,0.54,0.78")
+print("AICE_TABLE_END")
+print("AICE_FIG training_curve.png")</pre></section><section id="data"><h2>5. 資料擷取、Excel 報表、表格與圖檔</h2><p>每次實際「執行」會自動建立：</p><pre>&lt;程式檔案同層&gt;/variable/&lt;檔名_時間戳&gt;/
+  AICodingEditor_RunReport.xlsx
+  console_io.txt、variables.csv、run_metadata.txt
+  table/、fig/</pre><table><thead><tr><th>項目</th><th>擷取方式</th><th>結果</th></tr></thead><tbody><tr><td>程式輸入</td><td>透過程式標準輸入送出的文字。</td><td>Variables 與 Console I-O 工作表。</td></tr><tr><td>程式輸出</td><td>實際執行期間的標準輸出／錯誤。</td><td>Console I-O 工作表與文字紀錄。</td></tr><tr><td>變數</td><td><code>AICE_VAR name=value</code>、<code>name=value</code>、<code>name: value</code> 或單行 JSON。</td><td>Variables 工作表與 <code>variables.csv</code>。</td></tr><tr><td>表格</td><td><code>AICE_TABLE_BEGIN...END</code>，或執行時新建／更新的 CSV、TSV、JSON。</td><td>每張表格為一個 Excel 工作表，並複製至 table。</td></tr><tr><td>圖檔</td><td><code>AICE_FIG 路徑</code>，或執行時新建／更新的 PNG/JPG。</td><td>轉存 PNG 至 fig，並嵌入 Figures 工作表。</td></tr><tr><td>週期資料</td><td>第一欄是日期／時間或遞增數值且有數值序列。</td><td>自動建立 PNG 時序折線圖並放入 Excel 報表。</td></tr></tbody></table><div class="warn"><b>重要限制：</b>為確保跨語言與安全性，程式不會任意讀取 Java/C/C++/Python 行程的私有記憶體變數。需要保留的數值請由程式以 <code>AICE_VAR</code> 或 <code>name=value</code> 主動輸出；此格式可跨所有支援語言使用。</div></section><section id="live"><h2>6. 即時變數監測與波型圖</h2><ol><li>需要即時遙測時才按工具列 <b>⌁ 啟用即時變數監測</b>；預設為停用且不顯示下方「變數監測」分頁。</li><li>按「選擇變數...」，從偵測清單勾選或輸入變數名稱（用逗號分隔）。未選取代表監測所有可辨識輸出變數。</li><li>啟用後再執行程式，右下「變數監測」分頁才會出現並更新資料。</li><li>表格會顯示目前值、樣本數、時間與來源；選取數值變數或使用下拉選單即可顯示即時波型／趨勢。</li><li>程式結束後按「開啟 variable 報表」可找到 XLSX、table 與 fig。</li></ol><p>為維持介面反應，每一變數每次執行保留目前執行期間的完整數值樣本歷程。</p></section><section id="ai"><h2>7. 資料庫與 AI 套件</h2><h3>資料庫</h3><ul><li>MS SQL Server：設定 → 偏好 → MS SQL 驅動程式。</li><li>SQLite：在工具鏈設定 SQLite CLI 與資料庫目標。</li><li>MySQL：可從嵌入式控制台執行 mysql CLI，或在各語言設定相關 Driver／套件。</li></ul><h3>建議 Python 資料與 AI 套件</h3><table><thead><tr><th>用途</th><th>套件</th></tr></thead><tbody><tr><td>資料處理</td><td>numpy、pandas、scipy、openpyxl</td></tr><tr><td>視覺化</td><td>matplotlib、seaborn、plotly</td></tr><tr><td>機器學習</td><td>scikit-learn、xgboost、lightgbm</td></tr><tr><td>深度學習</td><td>tensorflow、keras、torch、torchvision、torchaudio</td></tr><tr><td>電腦視覺</td><td>opencv-python、pillow</td></tr><tr><td>NLP / LLM</td><td>transformers、datasets、tokenizers、sentencepiece</td></tr><tr><td>模型圖</td><td>pydot、graphviz；另需本機 Graphviz 的 <code>dot</code>。</td></tr></tbody></table></section><section id="mac"><h2>8. macOS / MacBook</h2><p>使用 <code>AICodingEditor.app</code> 或 <code>Run_AICodingEditor.command</code>。需安裝 Java 17+，並可由 <code>JAVA_HOME</code> 或 PATH 找到 <code>java</code>。內部測試包尚未 Apple Notarization，首次可在 Finder 右鍵「打開」。</p></section><section id="v029"><h2>V0.1.29：工具鏈共用根目錄與 Streamlit</h2><div class="card"><p><b>工具鏈共用根目錄：</b>Windows 預設為 <code>D:\</code>。請至 <code>設定 → 偏好 → 一般 → 程式語言與工具鏈</code>，按下<b>套用共用根目錄預設</b>，即可設定 <code>D:\JDK-26.0.1</code>、<code>D:\Dev-Cpp</code>、<code>D:\ArduinoCLI</code>、<code>D:\Arduino</code>、<code>D:\SQL_Driver</code> 的同層預設路徑。</p><p><b>Streamlit 按鈕：</b>開啟並儲存 <code>.py</code> 檔案後按下 <b>Streamlit</b>。系統會在可用時使用目前 uv 虛擬環境，否則使用設定的 Python 解譯器，執行 <code>streamlit run 目前檔案.py</code>。每個環境首次需安裝：<code>python -m pip install streamlit</code>。按<b>停止</b>可結束 Streamlit 伺服器。</p></div></section><section id="trial"><h2>9. 內部 7 天試用與聯絡方式</h2><p>內部測試版本會在啟動時確認網路時間。試用結束後變成唯讀，可開啟與閱讀檔案，但不可存檔、建立專案、編譯、執行或使用控制台命令。</p><div class="card"><b>聯絡方式</b><br>Jonathan Chen, PMI-PMP<br><a href="mailto:jonathanchen0215@gmail.com">jonathanchen0215@gmail.com</a></div></section><section id="ai-v023703"><h2>V0.2.37-03：AI 送出按鈕修正</h2><p>AI 助手的<b>送出 AI 問題</b>按鈕在可使用時會清楚顯示為藍色。AI 請求進行時，按鈕會暫時變成灰色並顯示<b>AI 送出中...</b>；請求成功、失敗或逾時後會自動恢復成藍色可送出狀態。</p><p>送出 AI 問題是非破壞性的網路請求，不再受舊版寫入／編譯限制所阻擋。由 AI 建立檔案或套用 Patch 仍必須選擇路徑、預覽／Diff 並由使用者明確確認。</p></section><section id="ai-v023704"><h2>V0.2.37-04：AI 送出按鈕版面修正</h2><p>主要的<b>送出 AI 問題</b>按鈕現在固定佔用提示輸入框正下方的一整列；即使 AI 面板較窄或程式視窗較矮，也會保持可見。</p><p><b>清除</b>、<b>Diff 預覽</b>、<b>套用 Patch</b>、<b>建立新檔</b>會放在另一列緊湊按鈕列，因此不會換行或遮住送出按鈕。仍可使用 <b>Ctrl+Enter</b> 快速送出。</p></section><section id="ai-v023705"><h2>V0.2.37-05：AI 精簡控制列與可調整雙視窗</h2><p>AI 請求 Context 與安全選項已由助手面板移至 <b>AI → AI Provider 設定</b>（也可按右上齒輪）。包括：目前選取程式碼、目前檔案、Console Error、Full Project Scan、Auto Run、Auto Install Package。</p><p>AI 回覆與提示輸入框之間現在有可拖曳分隔線，可放大任一視窗。下方五項功能改為小型圖示按鈕；滑鼠停留可顯示文字：<b>送出</b>、<b>清除</b>、<b>Diff 預覽</b>、<b>套用 Patch</b>、<b>建立新檔</b>。仍可按 <b>Ctrl+Enter</b> 送出。</p></section><section id="v023708"><h2>V0.2.37-08：高對比黑底白字與可關閉分頁</h2><p>工作區基礎背景改為<b>純黑色</b>、文字為<b>白色</b>，提高整體可讀性；只有目前選取的分頁使用藍色作為清楚的作用中提示。</p><ul><li>所有程式碼檔案分頁新增 <b>×</b> 關閉按鈕；未儲存檔案仍會顯示原有的「儲存／不儲存關閉／取消」確認。</li><li><b>嵌入式控制台</b>與<b>變數監測</b>分頁都新增 <b>×</b> 關閉按鈕。</li><li>上方工具列新增 <b>&gt;_</b> 圖示，可重新開啟嵌入式控制台；原有的變數監測圖示可重新開啟變數監測面板。</li><li>下方兩個分頁都關閉時，程式碼編輯器會展開為右側全高度；重新開啟任一面板時，下方分割區會恢復。</li></ul><p>若嵌入式控制台仍有子程序執行中，關閉其分頁前會詢問是否先停止該程序。</p></section><section id="v023709"><h2>V0.2.37-09：檔案列對比與程式分頁關閉修正</h2><p>Workbench 與檔案瀏覽器改為強制使用 Basic Swing 檔案樹轉譯器：一般列固定為<b>黑底、白色檔名／資料夾名稱</b>。右鍵選單同樣固定黑底白字，選取項目以藍色顯示。</p><p>從 Workbench 移除專案、以及檔案列刪除確認，改用程式自有的高對比確認視窗；即使 Windows 主題忽略原生顏色，訊息與「是／否」按鈕仍可清楚閱讀。</p><p>程式碼檔案分頁改用 Basic 分頁轉譯器，並在右側保留固定的 <b>×</b> 關閉欄。白色 × 永遠可見；滑鼠移入時改為紅色。未儲存檔案仍保留儲存／不儲存關閉／取消的確認流程。</p></section><section id="v023710"><h2>V0.2.37-10：工具圖示整合至主選單列右側</h2><p>原本位於主選單下方的 IDE 工具圖示列，現在已移至與<b>檔案、編輯、搜尋、觀看、編碼、設定、AI、巨集、執行、視窗、?</b>相同的一列，固定靠右顯示。</p><p>圖示仍保留滑鼠停留提示與無障礙名稱；檔案、搜尋、編譯／執行、Java、Streamlit、Jupyter、Python 套件、嵌入式控制台與變數監測等功能均未移除。移除原本的第二列後，Workbench、程式碼編輯器、嵌入式控制台、變數監測與 AI 面板可取得更多垂直空間。</p></section>
+<section id="wide"><h2>即時遙測資料儲存：每筆樣本各自一列</h2>
+<p>V0.1.35 會將每一行遙測輸出視為一筆獨立的時間序列資料。變數不會再被合併到單一「名稱／數值」欄位；主要檔案為 <code>variables.csv</code>，以及 <code>AICodingEditor_RunReport.xlsx</code> 內的「Variables」工作表。</p>
+<pre>AICE_VAR sample=0 time_s=0.000 x=0 y1=0.000000 y2=1.000000
+AICE_VAR sample=1 time_s=0.200 x=1 y1=0.017452 y2=0.999848</pre>
+<table><thead><tr><th>Sample #</th><th>Captured at</th><th>sample</th><th>time_s</th><th>x</th><th>y1</th><th>y2</th></tr></thead>
+<tbody><tr><td>1</td><td>程式輸出時間</td><td>0</td><td>0.000</td><td>0</td><td>0.000000</td><td>1.000000</td></tr>
+<tr><td>2</td><td>程式輸出時間</td><td>1</td><td>0.200</td><td>1</td><td>0.017452</td><td>0.999848</td></tr></tbody></table>
+<p>若每個週期有 360 筆、共執行 10 個週期，報表就會保留 <b>3,600 筆獨立資料列</b>。即使數值重複，也會因為產生時間不同而完整保留。<code>variable_events.csv</code> 另保留 stdin / stdout 的長格式稽核紀錄。</p>
+<div class="note">當至少有三筆數值樣本時，AICodingEditor 會自動產生波型／時間序列 PNG：<code>fig\variable_waveform_continuous_time.png</code>，並嵌入 Excel 報表。</div>
+</section>
+
+<section id="python-recovery"><h2>V0.1.35：uv 啟動檢查與 Python 套件自動修復</h2>
+<p>AICodingEditor 啟動時會檢查設定的 <code>uv</code> 指令。若找不到 uv，系統會自動嘗試：</p>
+<pre>python -m pip install uv</pre>
+<p>若一般安裝位置沒有寫入權限，會再以 <code>--user</code> 重試。處理過程會顯示於嵌入式控制台；若仍失敗，程式仍可使用，並顯示診斷資訊。可至 <code>設定 → 偏好 → 一般</code> 選擇 Python 解譯器及 uv 路徑。</p>
+<h3>執行 Python 時缺少第三方 site-package</h3>
+<p>若 Python 程式發生 <code>ModuleNotFoundError: No module named '套件名稱'</code>，系統會跳出詢問視窗，提供建議的 PyPI 套件名稱（例如 <code>sklearn → scikit-learn</code>、<code>cv2 → opencv-python</code>）。按下<b>確定</b>後，系統會在目前 Python / uv 環境安裝該套件；安裝成功後會自動重新執行同一個檔案。</p>
+<pre># 會觸發自動修復詢問的錯誤範例
+ModuleNotFoundError: No module named 'humanize'</pre>
+<p>發行包的 <code>Examples/Python/AutoInstall_Humanize_Demo.py</code> 可立即測試此流程。</p>
+<h3>Python 標準函式庫 import 提醒</h3>
+<p>標準函式庫不需要也不應使用 PyPI 安裝。當系統辨識常見的標準函式庫 <code>NameError</code>，例如 <code>name 'json' is not defined</code>，會改為提醒您在程式碼上方加入 import，而不會建議 pip install：</p>
+<pre>import json</pre>
+<p><code>Examples/Python/StandardLibrary_Import_Reminder_Demo.py</code> 可測試此功能；該範例刻意將 <code>import json</code> 註解掉。</p>
+<div class="warn"><b>安全機制：</b>第三方套件缺少時，AICodingEditor 一定會先詢問使用者同意，才會執行安裝。需要網路連線與可用的 pip；為避免無限重試，每次手動執行只會自動重跑一次。</div>
+</section>
+
+
+<section id="v0134"><h2>V0.1.35：EXE 同層工具鏈與 Jupyter Notebook</h2>
+<h3>AICodingEditor.exe 同層工具鏈資料夾</h3>
+<p>第一次啟動時，預設的<b>工具鏈共用根目錄</b>就是 <code>AICodingEditor.exe</code> 與 <code>AICodingEditor.jar</code> 所在資料夾。請將既有的第三方工具資料夾放在啟動檔同一層：</p>
+<pre>Windows_Executable/
+  AICodingEditor.exe
+  AICodingEditor.jar
+  JDK-26.0.1/        （Java 工具）
+  Dev-Cpp/           （MinGW gcc/g++）
+  ArduinoCLI/        （arduino-cli.exe）
+  SQL_Driver/        （SQLite / MS SQL Driver 檔案）
+  Manuals/
+  Examples/</pre>
+<p>AICodingEditor 會將實際存在的同層工具資料夾自動加入到<b>每一個編譯、執行、Python、Streamlit、Jupyter 與嵌入式控制台子程序的 PATH</b> 前端。不會修改 Windows 系統或使用者的全域 PATH 登錄值，也不需要系統管理員權限。工具不在同一層時，可至 <code>設定 → 偏好 → 一般 → 程式語言與工具鏈</code> 修改根目錄。</p>
+<h3>可編輯的 .ipynb Notebook</h3>
+<p>直接開啟 Jupyter <code>.ipynb</code> 檔案即可。AICodingEditor 會用<b>儲存格文字模式</b>顯示：</p>
+<pre># %%
+# Python 程式碼儲存格
+print("Hello Jupyter")
+
+# %% [markdown]
+# Markdown 標題與說明</pre>
+<p>存檔時會寫回標準 <code>.ipynb</code> JSON 格式。當儲存格文字被修改時，原有程式碼儲存格輸出會清除，避免來源已變更卻保留過期結果。</p>
+<h3>執行目前 Notebook</h3>
+<ol><li>開啟並儲存 <code>.ipynb</code> 檔案。</li><li>按上方 <b>Jupyter 執行</b>，或選擇 <code>執行 → Jupyter：執行目前 Notebook（.ipynb）</code>。</li><li>系統會檢查目前選定 Python／uv 環境是否具備 <code>jupyter</code>、<code>nbconvert</code> 與 <code>ipykernel</code>。</li><li>若缺少套件，確認後自動安裝；有 uv 時使用 <code>uv pip install --python &lt;interpreter&gt; jupyter nbconvert ipykernel</code>，否則使用 <code>python -m pip install</code>。</li><li>AICodingEditor 會先將目前 Python 環境註冊為 Jupyter kernel，再以 <code>jupyter nbconvert --to notebook --execute --inplace</code> 執行所有程式碼儲存格。輸出結果會寫回同一個 Notebook；按 <b>停止</b> 可強制終止執行。</li></ol>
+<p>發行包內含不需要第三方套件的 <code>Examples/Jupyter/SinCos_Live_Notebook.ipynb</code> 範例。</p>
+</section>
+
+
+<section id="v0136"><h2>V0.1.36：Jupyter 整數計數欄位自動修復</h2><p>執行 <code>.ipynb</code> 前，AICodingEditor 會修復 Jupyter <code>nbformat</code> 要求必須為 JSON 整數的欄位：<code>nbformat</code>、<code>nbformat_minor</code>、每個程式碼儲存格的 <code>execution_count</code>，以及每個 <code>execute_result.execution_count</code>。</p><div class="note"><b>自動修復：</b>可轉換的整數小數，例如 <code>"execution_count": 1.0</code>，會改為 <code>"execution_count": 1</code>。非整數或不合法的執行計數會改為 <code>null</code>；這是 Notebook Schema 合法值，且不會猜測錯誤的執行順序。DataFrame、波形／圖表、影像輸出與其他 metadata 的一般浮點數不會被修改。</div><p>需要修復時，編輯器會先在同一資料夾建立備份：</p><pre>MyNotebook.aicodingeditor-backup-YYYYMMDD_HHMMSS_SSS.ipynb</pre><p>此功能可在 <code>nbconvert</code> 啟動 Kernel 前排除 <code>1.0 is not of type 'integer', 'null'</code> 等驗證錯誤。</p></section>
+
+<hr>
+<h2>V0.2.37-02 — OpenAI + Gemini 環境變數 API Key</h2>
+<p>V0.2.37-02 保留右側可停駐的 AI Assistant，並加入每個 Provider 可獨立選擇的 API Key 來源。新安裝預設為<b>「環境變數（建議）」</b>；從 V0.2.37 升級且已存有加密本機 Key 的使用者，會保留原本的來源設定，直到自行切換。</p>
+<ol>
+<li>先完全關閉 AICodingEditor。在 Windows 開啟<b>編輯系統環境變數</b> → <b>環境變數</b> → <b>使用者變數</b> → <b>新增</b>。OpenAI 建立 <code>OPENAI_API_KEY</code>；Gemini 建立 <code>GEMINI_API_KEY</code>。完成後必須重新啟動 AICodingEditor。</li>
+<li>開啟 <b>AI → AI Provider 設定</b>。每個 Provider 的 Key 來源選擇<b>「環境變數（建議）」</b>，保留預設變數名稱，確認偵測狀態後儲存。Gemini 欄位維持預設 <code>GEMINI_API_KEY</code> 時，也可後備讀取 <code>GOOGLE_API_KEY</code>。</li>
+<li>環境變數模式只會在送出 AI 請求時，以 <code>System.getenv()</code> 讀取 Key；不會顯示、不會填回 Key 欄位，也不會寫入 Java Preferences。<b>清除本機已儲存 Key</b> 不會刪除 Windows 環境變數。</li>
+<li>可使用 Chat、Explain Code、Fix Error、Generate Code、Review Code。預設傳送目前選取程式碼、目前檔案及 Console Error；Full Project Scan 預設關閉，必須自行明確勾選。</li>
+<li>若要修改程式，模型必須回傳 AICodingEditor patch。按下 <b>Patch Diff Preview</b>，檢視 unified diff 與左右內容比較後，再按 Apply Patch，並於第二次確認視窗明確同意。</li>
+<li>當 AI 回傳完整程式碼區塊或完整 Patch 後，可按 AI 面板的<b>「建立新檔...」</b>，或選擇 <code>AI → 由 AI 結果建立新檔...</code>。另存對話框預設為目前開啟檔案的資料夾／目前工作路徑；選擇檔名與位置後，必須先檢查預覽、再確認才會建立檔案。若目標檔案已存在，會先顯示 Diff，並需要另外確認覆寫。目標副檔名為 <code>.ipynb</code> 或需求包含 Jupyter／Notebook 時，程式碼會轉成標準 Jupyter Notebook 並以儲存格文字模式開啟。</li>
+</ol>
+<p><b>安全：</b>環境變數可讓 Key 不出現在原始碼及 AICodingEditor 的 Java Preferences，但不是企業級 Secret Vault；同一個 Windows 帳號下執行的程式仍可能存取。請勿將 Key 提交到 Git。發行包另含 <code>SET_API_KEYS_WINDOWS.txt</code> 及 <code>Windows_Executable/Verify_AI_Environment_Variables.bat</code>；驗證檔只顯示 SET / NOT SET，不會印出 Key。</p>
+<p><b>安全流程：</b>V0.2.37-02 不允許 AI 自動執行程式或安裝套件。Patch 必須「先預覽、再確認」才會更新編輯器內容；AI 產生的新檔也不會自動寫入，必須選擇路徑、檢查預覽／Diff，並明確確認建立或覆寫。</p>
+<section id="ai-v023706"><h2>V0.2.37-06：圖示工具列與統一 AI 功能列</h2><p>原本上方檔案、搜尋、編譯／執行、變數／圖表的文字按鈕已改為小型圖示；滑鼠停在圖示上可顯示完整功能名稱，因此可保留更多空間給 Workbench、編輯器、Console 與 AI 雙視窗。</p><p>AI 助手不再在面板上顯示 Provider 與 AI 功能下拉清單；請至 <b>AI → AI Provider 設定</b> 選擇預設 Provider 與預設 AI 功能。AI 面板標題下方使用單列圖示：聊天、解釋、修正錯誤、產生程式碼、程式碼審查，以及送出、清除、Diff 預覽、套用 Patch、建立新檔。點選功能圖示只會選取功能並在提示欄空白時帶入標準指令；仍需按送出圖示或 Ctrl+Enter 才會發送請求。</p></section>
+<section id="v023707"><h2>V0.2.37-07：左側 Workbench／檔案瀏覽器的 Delete 與拖放</h2><p>左側兩個檔案樹現在支援 Windows 檔案總管拖放、Delete 鍵與右鍵選單，不必額外增加大型按鈕，因此能保留 Workbench、檔案瀏覽器、編輯器與 AI 視窗的可用空間。</p><h3>上方 Workbench／專案</h3><ul><li>從 Windows 檔案總管拖放<b>資料夾</b>到 Workbench：確認後新增為專案根目錄。</li><li>拖放<b>檔案</b>到 Workbench：確認後加入其父資料夾為專案根目錄，並開啟該檔案。</li><li>選取<b>專案根目錄</b>按 <code>Delete</code>：只會從 Workbench 清單移除，<b>不會刪除磁碟檔案</b>。</li><li>選取專案內的檔案或資料夾按 <code>Delete</code>：會明確提示「永久刪除」，且不會移到資源回收筒。</li></ul><h3>下方檔案路徑／瀏覽器</h3><ul><li>從 Windows 檔案總管拖放檔案或資料夾到目標資料夾列：確認後複製到該資料夾。來源不會移動或刪除；同名檔案僅會在確認後覆寫。</li><li>選取項目按 <code>Delete</code>：會在確認後永久刪除檔案或資料夾。若該項目已在編輯器開啟且有未儲存變更，系統會先提醒變更將被捨棄。</li><li>右鍵選單可使用：開啟、在檔案總管顯示、重新整理，以及視情況顯示從 Workbench 移除或永久刪除。</li></ul><div class="warn"><b>注意：</b>永久刪除不會移到 Windows 資源回收筒。請只在確認不需要還原時使用；一般專案移除請選取上方 Workbench 的專案根目錄並按 Delete，即可安全地只移除清單登錄。</div></section>
+<section id="v023711"><h2>V0.2.37-11：工具緊接 ? 選單與高對比輸入修正</h2><p>小型 IDE 工具圖示現已放在主選單同一列、<b>?</b> 的右側緊接位置，採靠左排列；右邊保留未使用空間。</p><p><b>字型大小</b>與巨集名稱輸入不再使用 Windows 原生輸入視窗。AICodingEditor 改用自己的對話框，強制黑底、白色標籤／輸入文字／游標、藍色確定與深色取消。嵌入式控制台的<b>送出／Enter</b>、<b>關閉標準輸入</b>、<b>清除</b>、<b>停止／隱藏</b>按鈕也改用可預期的 Basic Swing 深色繪製，避免 Windows 將按鈕畫成淺色而造成白字看不清楚。</p></section><section id="v023713"><h2>V0.2.37-13：AI 附件、拖放與 Prompt + 選單</h2><p>AI Prompt 左下角新增精簡 <b>+</b> 按鈕，功能類似聊天工具的附件選單：<b>附加資料／檔案</b>、<b>附加圖片</b>、<b>附加資料夾／uv 專案</b>、<b>附加目前編輯檔</b>、<b>附加左側目前選取項目</b>與<b>清除所有附件</b>。</p><p>也可以在左側上方 Workbench 或下方檔案瀏覽器，以滑鼠左鍵按住檔案或資料夾，拖放至 AI Prompt 或附件列。項目會顯示為 Prompt 下方的附件 chip；按其 <b>×</b> 可移除。左側樹狀目錄右鍵選單也新增<b>附加給 AI 分析</b>。</p><p><b>隱私與安全：</b>加入附件時不會讀取或傳送內容；只有按下<b>送出 AI 問題</b>或 <code>Ctrl+Enter</code> 時才會讀取。文字／程式碼／資料檔以受限 UTF-8 Context 傳送。附加資料夾是明確選擇的受限掃描，並非開啟全專案掃描；會略過 <code>.venv</code>、<code>.git</code>、相依套件、建置輸出、快取、金鑰、認證資料與疑似密碼檔案，也絕不執行附件。</p><p><b>圖片：</b>PNG、JPG/JPEG、GIF、WebP 會作為支援影像分析之 OpenAI／Gemini 模型的視覺輸入；上限 4 張、單張 3 MB、圖片原始總量 12 MB。不支援或二進位檔會標示為略過，不會靜默上傳。</p></section><section id="v023718"><h2>V0.2.37-18：高對比表格、uv 啟動與 AI 手冊更新</h2><ul><li>修正變數監測表格標題列在 Windows Look &amp; Feel 下可能白底白字的問題。</li><li>Workbench／檔案瀏覽器右鍵選單新增「啟動 uv 虛擬專案／資料夾」，可直接啟用既有 .venv，不會重新建立環境。</li><li>說明書新增 AI Assistant 示窗配置圖與安全流程說明。</li><li>延續 V0.2.37-16 的 30 天試用與 1 年正式序號 hash whitelist 相容性。</li></ul></section>
+<section id="v023720"><h2>V0.2.37-22：變數監測預設停用與 AI Workbench 專案 Context</h2><ul><li><b>變數監測預設停用。</b>啟動程式時不再自動開啟下方「變數監測」分頁；只有使用者明確啟用 Live Monitor 後才顯示。</li><li><b>手冊版面修正：</b>「即時遙測資料儲存」到 V0.2.37-11 的所有段落都維持在相同 1100px 內容寬度，不再滿版。</li><li><b>AI Workbench 專案 Context：</b>在 AI Provider Settings 明確開啟 <b>Full Project Scan</b> 時，會解析目前 Workbench 專案根目錄，送出受限、唯讀、排除 .venv / .git / secrets 的專案內容。Generate Code 會依專案結構產生程式碼；Chat/Ask 可依專案內容產生專案規畫書。</li><li><b>序號相容：</b>延續 V0.2.37-16 產生的 AIC30 30 天試用序號與 AIC1Y 1 年正式序號 hash whitelist。</li></ul></section>
+<footer>AICodingEditor V0.2.37-29 · 內部測試文件。<section id="v023721"><h2>V0.2.37-22：關於視窗本地化、檔案瀏覽器精簡按鍵、多控制台、智慧縮排與程式碼摺疊</h2><ul><li><b>關於視窗本地化：</b>關於 AICodingEditor 會依目前語言顯示繁體中文、簡體中文或英文。</li><li><b>檔案瀏覽器精簡按鍵：</b>前往、上一層、重新整理改為圖示按鍵，滑鼠停留時顯示完整文字，讓檔案路徑欄位有更大寬度。</li><li><b>多個嵌入式控制台：</b>按 <b>&gt;+</b> 或使用「觀看 → 新增嵌入式控制台」，可新增控制台 2、控制台 3…，每個額外控制台可獨立執行命令。</li><li><b>Enter 智慧縮排：</b>在 Python <code>:</code> 或 C/Java/JavaScript 等語言的 <code>{</code> 後按 Enter，下一行會保留上一行縮排並自動右移 4 格。</li><li><b>程式碼摺疊：</b>左側行號欄會在可收合的 if、else、while、for、function、class 等區塊顯示 <b>+</b>/<b>-</b>，可點擊展開或收合；工具列也提供目前檔案全部展開／全部收合。</li><li><b>手冊政策：</b>後續只要版本有變動，繁中、簡中、英文三份使用說明書都要一起更新。</li></ul></section>
+<section id="v023722"><h2>V0.2.37-22：AI 標題、設定欄位對比、錯誤訊息本地化、檔案選擇器對比修正</h2><ul><li><b>AI Assistant 標題顯示目前 Provider / Model：</b>Gemini 會顯示目前 Gemini model，OpenAI GPT model 會以 ChatGPT 名稱顯示；Ask Every Time 送出後會顯示本次選用的 Provider。</li><li><b>AI Provider Settings 對比修正：</b>預設 Provider、預設 AI 功能、OpenAI Key 來源、Gemini Key 來源等下拉欄位改為深灰底白字，避免 Windows Look &amp; Feel 造成看不清楚。</li><li><b>AI API 錯誤訊息本地化：</b>HTTP 429 insufficient_quota、rate limit、invalid API key 等常見錯誤會依繁中、簡中、English 顯示使用者可讀說明。</li><li><b>檔案／資料夾選擇視窗對比修正：</b>Open、Cancel 等按鈕強制黑底、白字、淺灰外框。</li><li><b>序號相容：</b>V0.2.37-16 產生的 AIC30 30 天試用序號與 AIC1Y 1 年正式序號仍相容。</li></ul></section>
+<footer></div><h2>V0.2.37-23</h2><ul><li>AI Prompt 支援 Ctrl+C / Ctrl+V / Ctrl+X 與右鍵剪下、複製、貼上、全選。</li><li>AI 功能列新增 ↗ 獨立 AI 視窗，可放大對話與 Prompt 區。</li><li>AI 回覆若含完整程式碼區塊，Prompt 下方會出現可勾選的 AI 新檔清單；勾選後建立於目前目錄，既有檔案仍會進入預覽 / Diff 保護流程。</li><li>延續 AIC30 / AIC1Y 序號相容性。</li></ul>
+
+<section id="v023724"><h2>V0.2.37-24：AI Pop-out / 剪貼簿與多控制台修正</h2><ul><li><b>AI Pop-out 更明顯：</b>AI 功能列最左側的 ↗ 按鈕改為紅色邊框與紅色圖示，按下後會開啟大型獨立 AI 對話與 Prompt 視窗。</li><li><b>AI Prompt 剪貼簿修正：</b>即使 Prompt 同時支援拖放檔案／資料夾，仍強制支援 Ctrl+C、Ctrl+V、Ctrl+X、Shift+Insert 與右鍵剪下／複製／貼上／全選。</li><li><b>多控制台編碼修正：</b>控制台 2、3… 改用與第一個控制台相同的 UTF-8 Windows shell wrapper，執行 <code>dir</code> 等命令時中文路徑與日期文字不再亂碼。</li><li><b>第一個控制台輸入列修正：</b>命令模式下隱藏「關閉標準輸入」按鈕，讓命令輸入框變長；只有程式真正執行並需要 stdin 時才顯示該按鈕。</li><li><b>序號相容：</b>延續 V0.2.37-16 的 AIC30 / AIC1Y hash whitelist 序號。</li></ul></section>
+<section><h2>V0.2.37-25：完整 AI 面板拉出 / 回復停駐</h2><p>AI 工具列最左側的 ↗ 按鈕現在會把整個 AI Assistant 面板拉出為獨立視窗，而不是建立只有對話與輸入框的縮減版視窗。拉出後仍保留所有 AI 功能：Action 圖示、送出、清除、Diff、套用 Patch、建立新檔、齒輪設定、附件 +、附件列與 AI 產生檔案勾選清單。拉出後原本右側 AI 停駐區會釋放，使程式碼編輯區與 Console 工作區展開。關閉獨立 AI 視窗後，完整 AI 面板會回到右側停駐區。</p></section>
+<h2>V0.2.37-26 更新</h2><ul><li>修正 AI 助手完整拉出獨立視窗後，工具列 Icon 顯示為省略號的問題。</li><li>AI Prompt 支援直接貼上剪貼簿圖片；圖片會先成為暫存 PNG 附件，只有按送出 AI 時才讀取。</li><li>所有新增的嵌入式控制台分頁都顯示 × 關閉按鈕。</li></ul>
+<section id="v023727"><h2>V0.2.37-29 更新</h2><ul><li>AI 工具列中的 Diff 預覽按鈕改為直接顯示 <b>Diff</b> 文字，不再使用可能因字型或縮放而看不到的特殊符號。</li><li>Diff 按鈕寬度與字型已調整為適合目前小型方框，可在停用或啟用狀態下辨識其功能。</li></ul></section>
+<h3>V0.2.37-29：Diff 按鈕與程式碼摺疊修正</h3><p>AI 工具列的 Diff 預覽按鈕改為明確文字 <b>Diff</b>。程式碼摺疊修正點擊區域與大括號換行寫法，支援 if/else/while/for/function/class 等區塊的 + / - 展開與收合。</p>
+<section id="v023729"><h2>V0.2.37-29：關檔確認、Diff 顯示與程式碼摺疊修正</h2><ul><li>未儲存檔案關閉確認改為 AICodingEditor 自有高對比黑底對話框，按鈕固定黑底、白字、深灰邊框。</li><li>AI 工具列中的 Diff 按鈕固定顯示 <b>Diff</b> 文字，即使目前尚無可預覽 Patch 也能看清楚功能位置。</li><li>程式碼摺疊改為單行 placeholder 模式：C/Java/C++/C# 等大括號區塊會收合成 <code>header { ...</code> 一行；Python <code>:</code> 區塊會收合成 <code>def/if ...: ...</code> 一行，左側行號欄保留 <b>+</b> 供展開。</li></ul></section><section id="v023730"><h2>V0.2.37-30：檔案瀏覽器路徑按鈕 Icon 修正</h2><ul><li>左下方「檔案路徑／瀏覽器」右側三個小按鈕不再顯示為 <code>...</code>。</li><li>改為清楚可辨識的 <b>▶</b> 前往、<b>↑</b> 上一層、<b>R</b> 重新整理，並保留滑鼠停留提示文字。</li><li>按鈕仍維持小尺寸，讓檔案路徑欄位可顯示較長路徑。</li></ul></section><section id="v023731"><h2>V0.2.37-31：檔案瀏覽器路徑按鈕圖示改善</h2><ul><li>左下方「檔案路徑／瀏覽器」右側按鈕改為繪製式圖示，不再使用容易被截斷的文字。</li><li>重新整理按鈕改為綠色循環箭頭圖示。</li><li>前往按鈕改為資料夾搭配由左到右箭頭的圖示；上一層按鈕保留資料夾上箭頭概念。</li><li>滑鼠提示文字仍保留完整功能名稱。</li></ul></section><section id="v023732"><h2>V0.2.37-33：AI 產生檔案建立流程改善</h2><ul><li>當 AI 回覆包含完整程式碼區塊時，Prompt 下方會顯示更明顯的「AI 可建立檔案」清單。</li><li>使用者勾選檔名即可直接在目前目錄建立檔案，不需手動新建檔案或複製貼上。</li><li>若需求或程式碼可判斷為 Streamlit sin/cos 範例，預設檔名會建議為 <code>streamlit_sin_cos_live.py</code>。</li><li>若目標檔已存在，仍會進入 Preview/Diff 確認流程，避免覆寫。</li></ul></section><section id="v023733"><h2>V0.2.37-33：Python 範例資料夾 – Streamlit 即時 sin/cosin 波形</h2><p>Python 範例資料夾會固定保留 <code>Examples/Python/sinx_cosinx_streamlit_2.py</code>。此範例會建立 Streamlit 網頁，即時顯示 sine 與 cosine 波形，維持約 360 點的移動 x 視窗，舊點由左側移出，新點由右側加入。</p><p><b>執行方式：</b>在 AICodingEditor 開啟 <code>Examples/Python/sinx_cosinx_streamlit_2.py</code>，然後按 <b>Streamlit</b>。目前 Python / uv 環境需具備 <code>streamlit</code>、<code>numpy</code>、<code>matplotlib</code>。</p><pre>python -m streamlit run Examples/Python/sinx_cosinx_streamlit_2.py</pre><p>範例會在進入 while loop 前印出公式，並提供 Streamlit <b>Stop Simulation</b> 按鈕；在 Windows console 中也會檢查 ESC / Ctrl+C。</p><details><summary>檢視內建範例程式碼</summary><pre><code>import streamlit as st
+import numpy as np
+import matplotlib.pyplot as plt
+import time
+import sys
+
+# Try to import msvcrt for keyboard detection on Windows
+try:
+    import msvcrt
+except ImportError:
+    msvcrt = None
+
+# Set up Streamlit page configuration
+st.set_page_config(page_title=&quot;Sin &amp; Cosin Real-time Plot&quot;, layout=&quot;wide&quot;)
+st.title(&quot;Real-time Sin &amp; Cosin Waveforms&quot;)
+
+# Print to console before entering the while loop
+print(&quot;y1=sin(2*np.pi*x)&quot;)
+print(&quot;y2=cosin(2*np.pi*x)&quot;)
+
+# Also display the formula on Streamlit interface
+st.write(&quot;Formula 1: $y_1 = \\sin(2\\pi x)$&quot;)
+st.write(&quot;Formula 2: $y_2 = \\cos(2\\pi x)$&quot;)
+
+# Placeholder for updating matplotlib plot
+plot_placeholder = st.empty()
+
+# Add a Stop button in Streamlit to gracefully stop and free resources
+stop_button = st.button(&quot;Stop Simulation&quot;)
+
+# Initial parameters
+step_num = 0
+dt = 1.0 / 36.0          # Each step is 1/36 second
+sleep_time = 1.0 / (5*14.4)   # Every 1/7.2 second we update
+window_size = 360        # Approx 360 points in the window
+
+try:
+    while True:
+        # Force close any unclosed figures before creating a new one to save memory
+        plt.close(&#x27;all&#x27;)
+
+        # Check if user clicked Stop in Streamlit
+        if stop_button:
+            st.warning(&quot;Simulation stopped via Web UI.&quot;)
+            break
+
+        # Check for keyboard interrupts (ESC or Ctrl+C) in console
+        if msvcrt and msvcrt.kbhit():
+            key = msvcrt.getch()
+            # ESC key is 27 (b&#x27;\x1b&#x27;), Ctrl+C key is 3 (b&#x27;\x03&#x27;), &#x27;c&#x27;/&#x27;C&#x27; for ease
+            if key in (b&#x27;\x1b&#x27;, b&#x27;\x03&#x27;, b&#x27;c&#x27;, b&#x27;C&#x27;):
+                print(&quot;Exit signal received. Stopping while loop...&quot;)
+                break
+
+        # Generate x values for the moving window of 360 points
+        indices = np.arange(step_num, step_num + window_size)
+        x = indices * dt
+        
+        # Calculate y values
+        y1 = np.sin(2 * np.pi * x)
+        y2 = np.cos(2 * np.pi * x)
+
+        # Plot using Matplotlib
+        fig, ax = plt.subplots(figsize=(10, 2.5))       
+        ax.plot(x, y1, label=&quot;y1 = sin(2*pi*x)&quot;, color=&quot;blue&quot;, linewidth=1.5)
+        ax.plot(x, y2, label=&quot;y2 = cosin(2*pi*x)&quot;, color=&quot;red&quot;, linewidth=1.5)
+        
+        ax.set_xlim(x[0], x[-1])
+        ax.set_ylim(-1.2, 1.2)
+        ax.set_xlabel(&quot;x (seconds)&quot;)
+        ax.set_ylabel(&quot;y&quot;)
+        ax.grid(True, linestyle=&quot;--&quot;, alpha=0.6)
+        ax.legend(loc=&quot;upper right&quot;)
+        
+        # Display the updated figure in Streamlit
+        plot_placeholder.pyplot(fig)
+
+        # Force close the current figure to free memory immediately
+        plt.close(fig)
+
+        # Move window by 10 points (which corresponds to 10 * 1/36 second = 1/3.6 second of real-time shift)
+        step_num += 10
+
+        # Delay for 1/3.6 second
+        time.sleep(sleep_time)
+
+except KeyboardInterrupt:
+    print(&quot;KeyboardInterrupt (Ctrl+C) detected in console. Exiting...&quot;)
+finally:
+    # Cleanup all matplotlib plots to avoid resource leakage
+    plt.close(&#x27;all&#x27;)
+    plot_placeholder.empty()
+    st.info(&quot;Simulation ended and all resources have been released.&quot;)</code></pre></details></section><section id="v029901a"><h2>V0.2.99-01a Alpha 1：終端使用者測試版</h2><div class="warn"><b>預發布提醒：</b>本版以 V0.2.37-33 為基準，提供 GitHub 終端使用者測試，尚非正式穩定版。</div><ul><li>程式版本、關於視窗、建置日期、Release Notes 與啟動批次檔已更新為 V0.2.99-01a。</li><li>保留既有 OpenAI／Gemini、Diff／Patch、Python uv、Streamlit、SQL Driver、多控制台、變數監測、程式碼摺疊、三語手冊與範例。</li><li>套件不包含任何真實 OpenAI 或 Gemini API Key；請透過 Windows 環境變數設定。</li><li>Windows EXE 為尚未數位簽章的啟動器，在取得可信任 Code Signing 憑證前，Microsoft Defender SmartScreen 可能顯示警告。</li><li>回報問題時請提供 Windows 版本、JDK 版本、重現步驟、預期結果、實際結果與相關 Console 輸出。</li></ul></section></body></html>
